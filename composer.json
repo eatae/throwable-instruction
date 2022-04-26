@@ -1,0 +1,24 @@
+{
+    "name": "eatae/throwable-instruction",
+    "description": "Exception instructions",
+    "type": "library",
+    "license": "GPL-3.0-only",
+    "autoload": {
+        "psr-4": {
+            "Eatae\\ThrowableInstruction\\": "src/",
+            "Eatae\\ThrowableInstruction\\Exampes\\": "examples/",
+            "Eatae\\ThrowableInstruction\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "eatae",
+            "email": "al-loco@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
