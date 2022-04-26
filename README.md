@@ -1,2 +1,2 @@
 # throwable-instruction
-Package for creating instructions for exceptions
+Package for creating exception instructions
