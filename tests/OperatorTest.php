@@ -24,21 +24,22 @@ class OperatorTest extends TestCase
         );
     }
 
-    /**
-     * Test static method
-     */
-    public function testRun()
-    {
-        $instructionMock = $this->createMock(Instruction::class);
-        $instructionMock->expects($this->once())->method('execute');
 
-        $instructor = (new ThrowableInstructor())->add($instructionMock);
-        $e = new \Exception('', 0, $instructor);
+    public function testFollowInstruction()
+    {
+        $firstOperationMock = $this->createMock(OperationInterface::class);
+        $firstOperationMock->expects($this->once())->method('execute');
+        $secondOperationMock = $this->createMock(OperationInterface::class);
+        $secondOperationMock->expects($this->once())->method('execute');
+
+        $instruction = (new ThrowableInstruction())
+            ->add($firstOperationMock)
+            ->add($secondOperationMock);
 
         try {
-            throw $e;
+            throw new \Exception('', 0, $instruction);
         } catch (\Exception $e) {
-            ThrowableInstructor::run($e->getPrevious());
+            Operator::followInstruction($e);
         }
     }
 }
