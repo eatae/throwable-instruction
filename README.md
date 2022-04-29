@@ -4,17 +4,21 @@ Package for creating exception instructions
 ### Example
 
 ```php
-use Eatae\ThrowableInstructor\ThrowableInstruction;
-use Eatae\ThrowableInstructor\Example\EchoInstruction;
+use Eatae\ThrowableInstruction\ThrowableInstruction;
+use Eatae\ThrowableInstruction\Examples\EchoOperation;
+use Eatae\ThrowableInstruction\Operator;
 
 try {
-    $instructor = (new ThrowableInstruction())->add(new EchoInstruction(1);
-    throw new Exception('Example message', 0, $instructor);
+    throw new Exception(
+        "Example message",
+        0,
+        (new ThrowableInstruction())->add(new EchoOperation(1))
+    );
 } catch (Exception $e) {
     // some action
     echo $e->getMessage();
-    // run instructions
-    ThrowableInstruction::run($e->getPrevious());
+    // run instruction
+    Operator::followInstruction($e);
 }
 ```
 

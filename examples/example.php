@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Eatae\ThrowableInstruction\ThrowableInstruction;
 use Eatae\ThrowableInstruction\Examples\EchoOperation;
-use Eatae\ThrowableInstructor\Operator;
+use Eatae\ThrowableInstruction\Operator;
 
 try {
     throw new Exception(
