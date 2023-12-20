@@ -1,36 +1,34 @@
 <?php
 declare(strict_types=1);
 
-namespace Eatae\ThrowableInstruction;
+namespace eatae\ThrowableInstruction;
+
+use Throwable;
 
 class Operator implements OperatorInterface
 {
-    /**
-     * Get Instruction
-     */
-    public static function getInstruction(\Throwable $throwable): ?InstructionInterface
+
+    public static function getInstruction(Throwable $throwable): ?ThrowableInstructionInterface
     {
-        /** @var InstructionInterface|null $instruction */
+        /** @var ThrowableInstructionInterface|null $instruction */
         $instruction = null;
-        if ($throwable instanceof InstructionInterface) {
+        if ($throwable instanceof ThrowableInstructionInterface) {
             $instruction = $throwable;
-        } elseif ($throwable->getPrevious() instanceof InstructionInterface) {
+        } elseif ($throwable->getPrevious() instanceof ThrowableInstructionInterface) {
             $instruction = $throwable->getPrevious();
         }
 
         return $instruction;
     }
 
-    /**
-     * Follow Instruction
-     */
-    public static function followInstruction(\Throwable $throwable): void
+    public static function followInstruction(Throwable $throwable): void
     {
         $instruction = self::getInstruction($throwable);
         if ($instruction != null) {
             foreach ($instruction->getOperations() as $operation) {
                 $operation->execute();
             }
+            $instruction->clean();
         }
     }
 }

@@ -1,22 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace Eatae\ThrowableInstruction;
+namespace eatae\ThrowableInstruction;
 
-use \Exception;
+use Exception;
 
-class ThrowableInstruction extends Exception
-    implements InstructionInterface
+class ThrowableInstruction extends Exception implements ThrowableInstructionInterface
 {
     /** @var OperationInterface[] */
     protected array $operations = [];
 
     /**
-     * * Add instruction
-     *
      * @param OperationInterface ...$operations
      */
-    public function add(OperationInterface ...$operations): self
+    final public function add(OperationInterface ...$operations): self
     {
         $this->operations = array_merge($this->operations, $operations);
 
@@ -24,13 +21,29 @@ class ThrowableInstruction extends Exception
     }
 
     /**
-     * Get operations
-     *
+     * @param mixed[] $parameters
+     */
+    final public function operation(string $class, iterable $parameters = []): self
+    {
+        $operation = new $class(...$parameters);
+        $this->add($operation);
+
+        return $this;
+    }
+
+    /**
      * @return OperationInterface[]
      */
-    public function getOperations(): array
+    final public function getOperations(): array
     {
         return $this->operations;
     }
 
+    /**
+     * @return void
+     */
+    final public function clean(): void
+    {
+        $this->operations = [];
+    }
 }

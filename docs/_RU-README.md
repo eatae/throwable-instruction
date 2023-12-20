@@ -21,21 +21,17 @@
 </p>
 <br>
 <br>
-  
-## Description
-**Throwable Instruction** makes it possible to define additional actions when an Exception is thrown in a specific place.
 
+## Описание
 
-### Translation
-[RU](https://github.com/eatae/throwable-instruction-dev/blob/1/docs/_RU-README.md)
+**Throwable Instruction** даёт возможность определить дополнительные действия при выбросе Exception в конкретном месте.
 
 <br>
-<br>
 
-## Simple example
-<br>
+## Простой пример
 
-#### Call а instruction for the specified Exception type
+
+#### Вызов инструкции для указанного типа Exception
 
 ```php
 try {
@@ -54,7 +50,9 @@ try {
 } 
 ```
 
-#### Calling an instruction for any type of Exception
+
+
+#### Вызов инструкции для любого типа Exception
 
 ```php
 try {
@@ -76,12 +74,11 @@ try {
 }
 ```
 <br>
-<br>
 
-## Usage
-<br>
+## Использование
 
-1. **Create an operation class**
+
+1. **Создайте класс операции**
 
 ```php
 class ImportantMessageOperation implements OperationInterface
@@ -101,9 +98,10 @@ class ImportantMessageOperation implements OperationInterface
     }
 }
 ```
-<br>
 
-2. **Call the Operator::followInstruction() method**
+
+
+2. **Вызовите метод Operator::followInstruction()**
 
 ```php
 public function whereExceptionsAreCaught(): void
@@ -126,11 +124,12 @@ public function whereExceptionsAreCaught(): void
     }
 }
 ```
-<br>
 
-3. **Provide instructions for Exception**
 
-- No instructions
+
+3. **Укажите инструкции для Exception**
+
+- Без инструкций
 ```php
 public function doSomething(object $entity): void
 {
@@ -143,7 +142,7 @@ public function doSomething(object $entity): void
 }
 ```
 
-- With Notice instructions
+- С Notice инструкцией
 ```php
 public function doSomethingElse(object $item): void
 {
@@ -160,7 +159,7 @@ public function doSomethingElse(object $item): void
 }
 ```
 
-- With Important and CriticalEmail instructions
+- С Important и CriticalEmail инструкциями
 ```php
 public function doSomethingImportant(object $importantItem): void
 {
@@ -177,15 +176,13 @@ public function doSomethingImportant(object $importantItem): void
         );
     }
 }
-
 ```
 <br>
-<br>
 
-## Conclusion
-<br>
+## Заключение
 
-Try/catch in different places in the code or the lack of a logical hierarchy of Exceptions can make them difficult to work with. Throwable Instruction will not fix architectural problems, but it may improve understanding of the actions caused by Exceptions and add the ability to reuse these actions.
+Try/catch в различных местах кода или отсутсвие логичной иерархии Exceptions могут усложнить работу с ними. Throwable Instruction не исправит архитектурные проблемы, но может улучшить понимание действий вызванных Exceptions и добавит возможность повторного использование этих действий.
+
 
 
 

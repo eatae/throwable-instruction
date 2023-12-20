@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Eatae\ThrowableInstruction;
+namespace eatae\ThrowableInstruction;
 
 interface OperationInterface
 {
