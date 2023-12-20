@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Eatae\ThrowableInstruction;
+namespace eatae\ThrowableInstruction;
+
+use Throwable;
 
 interface OperatorInterface
 {
-    public static function followInstruction(\Throwable $throwable): void;
+    public static function followInstruction(Throwable $throwable): void;
 }
