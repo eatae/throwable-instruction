@@ -10,7 +10,7 @@
   <!-- source code -->
   <a href="https://github.com/eatae/throwable-instruction"><img src="http://img.shields.io/badge/source-eatae/throwable&ndash;instruction-/?color=4682B4" alt="Source Code"></a>
   <!-- downloads -->
-  <a href="https://github.com/eatae/throwable-instruction"><img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/eatae/throwable-instruction?color=9ACD32"></a>
+<!--   <a href="https://github.com/eatae/throwable-instruction"><img alt="Packagist Downloads" src="https://img.shields.io/packagist/dt/eatae/throwable-instruction?color=9ACD32"></a> -->
   <!-- release -->
   <a href="https://packagist.org/packages/eatae/throwable-instruction"><img src="https://img.shields.io/packagist/v/eatae/throwable-instruction?color=&label=release" alt="Download Package"></a>
   <!-- php-v -->
