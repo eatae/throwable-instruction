@@ -27,7 +27,7 @@
 
 
 ### Translation
-[RU](https://github.com/eatae/throwable-instruction/blob/1/docs/_RU-README.md)
+[RU](https://github.com/eatae/throwable-instruction/blob/develop/docs/_RU-README.md)
 
 <br>
 <br>
